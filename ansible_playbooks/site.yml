@@ -1,0 +1,12 @@
+---
+- hosts: "{{ group_name }}"
+  gather_facts: False
+  serial: 5
+
+  vars:
+    - ansible_ssh_execute: "/usr/bin/ssh"
+    - ansible_ssh_port: 22
+
+  pre_tasks:
+  roles:
+  post_tasks:
