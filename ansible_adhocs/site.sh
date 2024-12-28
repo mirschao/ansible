@@ -6,7 +6,7 @@
 
 
 function scan_kernel_version() {
-    ansible -i inventory/hosts_machines machines -m shell -a 'uname -r'
+    ansible -i inventory/hosts_machines machines all -m shell -a 'uname -r'
 }
 
 function main() {
