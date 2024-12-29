@@ -8,6 +8,7 @@ $ ansible-playbook -i inventorys/hosts_machines -e group_name='machines' site.ym
 ```
 
 下面是增加对应角色任务的方式：
+
 ```bash
 # 执行脚本增加角色
 $ bash add_roles.sh [ROLE_NAME]
@@ -15,5 +16,16 @@ $ bash add_roles.sh [ROLE_NAME]
 # 进入对应的角色目录，对任务进行编辑
 $ cd roles/[ROLE_NAME]
 $ tree
+.
+├── scripts
+│   └── NAME.sh
+└── tasks
+    └── main.yml
+```
 
+各功能执行命令：
+
+```bash
+# 执行重启
+$ ansible-playbook -i inventorys/hosts_machines -e group_name='machines' site.yml -t reboot
 ```
