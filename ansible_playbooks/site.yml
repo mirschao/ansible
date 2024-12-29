@@ -4,9 +4,31 @@
   serial: 5
 
   vars:
-    - ansible_ssh_execute: "/usr/bin/ssh"
-    - ansible_ssh_port: 22
+    - ansible_ssh_executable: "/usr/bin/ssh"
 
   pre_tasks:
+    - name: "Print all hosts to be operated on."
+      debug:
+        msg: "Hosts to be operated on: {{ ansible_play_batch }}"
+      run_once: true
+      delegate_to: localhost
+      tags: [ "always" ]
+
+    - name: "Pause for N seconds and wait for user confirmation."
+      pause:
+        seconds: 5
+      run_once: true
+      delegate_to: localhost
+      tags: [ "always" ]
+
   roles:
+    - { role: "initials", tags: [ "initials" ] }
+    - { role: "reboot", tags: [ "reboot" ] }
+
   post_tasks:
+    - name: "Print all hosts that were operated on."
+      debug:
+        msg: "completed: {{ ansible_play_batch }}"
+      run_once: true
+      delegate_to: localhost
+      tags: [ "always" ]
