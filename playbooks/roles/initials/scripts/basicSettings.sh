@@ -19,21 +19,23 @@
 systemctl disable --now firewalld
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
-# install epel-release
-yum install -y epel-release
-yum clean all
-yum makecache
-
 # update the system
 yum update -y --exclude=kernel*
+sleep 5
+
+# install epel-release
+yum install -y epel-release
+sleep 5
 
 # install the development tools
 yum groupinstall -y "Development Tools"
+sleep 5
 
 # install tools packages
-yum install -y vim git wget curl net-tools bind-utils yum-utils \
-                iptables-services bridge-utils bash-completion \
-                kexec-tools sos psacct screen lrzsz tree telnet \
-                tcpdump nmap-ncat ntpdate ntp chrony zip unzip \
-                bzip2 gzip lsof strace sysstat dstat iotop iftop \
-                iptraf mtr traceroute
+yum install -y  yum-utils iptables-services bridge-utils \
+                screen lrzsz telnet iptraf traceroute sysstat \
+                dstat iotop iftop
+sleep 5
+
+# install python environment packages
+yum install -y python3 python3-pip python3-devel
