@@ -22,7 +22,7 @@ To install the necessary dependencies, run:
 $ yum -y install ansible
 
 # inside to project directory
-$ cd ansible
+$ cd ansible/playbooks
 ```
 
 ## Usage
