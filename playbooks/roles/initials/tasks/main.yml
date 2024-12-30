@@ -16,7 +16,7 @@
   register: hostname
   tags: [ 'initials' ]
 
-- name: "[INITIALS] Configure Hostname"
+- name: "[INITIALS] Configure kernel Tuning"
   script: "scripts/kernelTuning.sh"
   register: hostname
   tags: [ 'initials' ]

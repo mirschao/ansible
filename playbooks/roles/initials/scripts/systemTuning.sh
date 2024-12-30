@@ -13,6 +13,7 @@
 # Script starts here
 
 
+# set max open files number.
 cp -a /etc/security/limits.conf /etc/security/limits.conf.${current_time}
 cat > /etc/security/limits.conf <<EOF
 *           soft    nofile          100000
@@ -22,3 +23,5 @@ cat > /etc/security/limits.conf <<EOF
 *           soft    core            unlimited
 *           hard    core            unlimited
 EOF
+
+echo 'export HISTTIMEFORMAT="%F %T `whoami` "' >> /etc/profile.d/history_format.sh

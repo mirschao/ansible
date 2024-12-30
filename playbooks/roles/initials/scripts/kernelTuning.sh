@@ -63,20 +63,11 @@ addConfigToFile "net.ipv4.tcp_tw_reuse = 1" /etc/sysctl.conf
 addConfigToFile "net.ipv4.tcp_fin_timeout = 1" /etc/sysctl.conf
 #防止简单的ddos攻击
 addConfigToFile "net.ipv4.tcp_max_orphans = 3276800" /etc/sysctl.conf
-#启用timewait快速收回
-addConfigToFile "net.ipv4.tcp_tw_recycle = 0" /etc/sysctl.conf
 #keeptime启用时tcp发送keepalive消息的频度，默认2h
 addConfigToFile "net.ipv4.tcp_keepalive_time = 600" /etc/sysctl.conf
 #允许系统打开的端口范围
 addConfigToFile "net.ipv4.ip_local_port_range = 1024 65535" /etc/sysctl.conf
-#资源回收
-addConfigToFile "net.ipv4.tcp_tw_recycle = 0" /etc/sysctl.conf
 #路由转发
 addConfigToFile "net.ipv4.ip_forward = 1" /etc/sysctl.conf
-#修改防火墙连接跟踪表大小，默认65535
-addConfigToFile "net.netfilter.nf_conntrack_max = ${nf_conntrack_size}" /etc/sysctl.conf
-addConfigToFile "net.nf_conntrack_max = ${nf_conntrack_size}" /etc/sysctl.conf
-#解禁ping
-addConfigToFile "net.ipv4.icmp_echo_ignore_all = 0" /etc/sysctl.conf
 modprobe bridge
 sysctl -p > /dev/null 2>&1
