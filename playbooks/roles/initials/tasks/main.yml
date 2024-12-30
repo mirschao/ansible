@@ -1,0 +1,7 @@
+---
+# settings of the initial machine
+
+- name: "basic system settings"
+  script: "scripts/basicSettings.sh"
+  register: basicSettings
+  tags: [ 'initials' ]
