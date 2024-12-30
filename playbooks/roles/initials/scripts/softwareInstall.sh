@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 #
-# Script to create a new Ansible role
-# Usage: ./basicSettings.sh
 # Author: mirschao
 # Date: 2024-12-30
 # Version: 1.0
 # ----------------------------------
-# Description:
-
+# description:
+# this script is used to configure software settings on a system.
 # ----------------------------------
 # Changelog:
 # 2024-12-30 - Initial version
@@ -19,7 +17,7 @@
 systemctl disable --now firewalld
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
-# setting the yum repository
+# setting the company's yum repository
 # sed -i 's/mirrors.rockylinux.org/[YOUR_MIRRORS]/g' /etc/yum.repos.d/Rocky-*.repo
 
 # update the system

@@ -1,7 +1,22 @@
 ---
 # settings of the initial machine
 
-- name: "basic system settings"
-  script: "scripts/basicSettings.sh"
-  register: basicSettings
+- name: "[INITIALS] Install Software"
+  script: "scripts/softwareInstall.sh"
+  register: softwareInstall
+  tags: [ 'initials' ]
+
+- name: "[INITIALS] Setting Timezone"
+  script: "scripts/timezone.sh"
+  register: timezone
+  tags: [ 'initials' ]
+
+- name: "[INITIALS] Configure System Tuning"
+  script: "scripts/systemTuning.sh"
+  register: hostname
+  tags: [ 'initials' ]
+
+- name: "[INITIALS] Configure Hostname"
+  script: "scripts/kernelTuning.sh"
+  register: hostname
   tags: [ 'initials' ]
