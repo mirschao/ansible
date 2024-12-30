@@ -19,6 +19,9 @@
 systemctl disable --now firewalld
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
+# setting the yum repository
+# sed -i 's/mirrors.rockylinux.org/[YOUR_MIRRORS]/g' /etc/yum.repos.d/Rocky-*.repo
+
 # update the system
 yum update -y --exclude=kernel*
 sleep 5
