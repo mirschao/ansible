@@ -15,7 +15,7 @@
 
 # add config to file
 function addConfigToFile(){
-    local keywords=`echo $1| awk -F "[= ]+" '{print $1}'`
+    local keywords=`echo $1 | awk -F "[= ]+" '{print $1}'`
     local SearchResult=`grep "^${keywords}" "$2"`
     if [ -z "${SearchResult}" ]; then
         echo $1 >> $2
